@@ -23,9 +23,9 @@ platform :android do
     firebase_app_distribution(
       app: "1:162620628240:android:93e6b33cf4d9c2bc9b1995",
       firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
-      testers: "mohamedkhalilalmasri@gmail.com, amirwidi@gmail.com",
+      testers: "mohamedkhalilalmasri@gmail.com",
       android_artifact_type: "APK",
-      android_artifact_path: "../build/app/outputs/flutter-apk/app-development-release.apk",
+      android_artifact_path: "../build/app/outputs/flutter-apk/app-release.apk",
       release_notes: "The emad special stair light controller is now done and it's ready to be tested",
     )
   end
