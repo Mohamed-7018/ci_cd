@@ -1,0 +1,32 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  desc "Debbuging app distribution for test between developers"
+  lane :debug_test do
+    sh "flutter clean"
+    sh "flutter build apk --release --no-tree-shake-icons"
+    firebase_app_distribution(
+      app: "1:162620628240:android:93e6b33cf4d9c2bc9b1995",
+      firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
+      testers: "mohamedkhalilalmasri@gmail.com, amirwidi@gmail.com",
+      android_artifact_type: "APK",
+      android_artifact_path: "../build/app/outputs/flutter-apk/app-development-release.apk",
+      release_notes: "The emad special stair light controller is now done and it's ready to be tested",
+    )
+  end
+end
